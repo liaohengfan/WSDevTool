@@ -1,9 +1,11 @@
-class Main{
+class WSServer{
+    server:any;
+    clients:any[]=[];
     constructor(){
         this.init();
     }
     private init():void{
-        alert("12344454");
+
     }
 }
-new Main();
+export {WSServer}

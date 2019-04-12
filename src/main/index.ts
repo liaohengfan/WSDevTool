@@ -16,7 +16,7 @@ function createMainWindow() {
             protocol: 'file',
             slashes: true
         }))
-        window.setFullScreen(true);
+        window.setFullScreen(false);
     }
     window.on('closed', () => {
         mainWindow = null
