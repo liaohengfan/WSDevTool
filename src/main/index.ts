@@ -1,8 +1,9 @@
 import { app,BrowserWindow} from 'electron';
 import * as path from 'path';
 import {format as formatUrl} from "url";
+import {serverManage} from "./server/ServerManage";
+import {command} from "./core/Command";
 let mainWindow:BrowserWindow|any;
-
 const isDevelopment = process.env.NODE_ENV !== 'production'
 function createMainWindow() {
     const window:BrowserWindow=new BrowserWindow();
@@ -18,6 +19,8 @@ function createMainWindow() {
         }))
         window.setFullScreen(false);
     }
+    command.toViewMsg('123456789');
+    serverManage.createServer('pingan',8100);
     window.on('closed', () => {
         mainWindow = null
     });
@@ -26,7 +29,7 @@ function createMainWindow() {
         setImmediate(() => {
             window.focus()
         })
-    })
+    });
     return window
 }
 
